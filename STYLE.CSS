@@ -1,0 +1,14 @@
+.container{
+display: flex;
+border: 3px solid red;
+height: 500px;
+width: 500px;
+border-radius: 10px;
+justify-content: center;
+align-items: center;
+}
+.child{
+    border: 3px solid blue;
+    height: 50px;
+    width: 50px;
+}
