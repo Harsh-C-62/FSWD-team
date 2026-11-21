@@ -1,0 +1,303 @@
+/* ================================
+   Journal App - Professional Styling
+   ================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+:root {
+    --primary: #6c63ff;
+    --primary-dark: #5148d8;
+    --accent: #ff8a65;
+    --background: #f5f7fb;
+    --card: rgba(255, 255, 255, 0.88);
+    --text: #20243a;
+    --muted: #7d8499;
+    --border: #e5e8f0;
+    --shadow: 0 20px 50px rgba(48, 55, 90, 0.12);
+    --radius: 22px;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 50px 20px;
+    font-family: "DM Sans", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(108, 99, 255, 0.16), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(255, 138, 101, 0.14), transparent 30%),
+        var(--background);
+}
+
+/* Main form card */
+form {
+    width: min(100%, 760px);
+    margin: 0 auto 32px;
+    padding: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+    animation: slideUp 0.7s ease both;
+}
+
+/* Form heading */
+label {
+    display: block;
+    margin-bottom: 18px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--text);
+}
+
+label::after {
+    content: " ✦";
+    color: var(--accent);
+    font-family: "DM Sans", sans-serif;
+}
+
+/* Writing area */
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 230px;
+    padding: 20px;
+    resize: vertical;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    outline: none;
+    background: #f8f9fd;
+    color: var(--text);
+    font: 400 1rem/1.7 "DM Sans", sans-serif;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+textarea::placeholder {
+    color: #a6adbf;
+}
+
+textarea:hover {
+    background: #ffffff;
+}
+
+textarea:focus {
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 5px rgba(108, 99, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Save button */
+#saveBtn {
+    display: block;
+    width: 100%;
+    margin-top: 22px;
+    padding: 15px 24px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary), #8c7dff);
+    font: 700 1rem "DM Sans", sans-serif;
+    letter-spacing: 0.2px;
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.25);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+#saveBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 28px rgba(108, 99, 255, 0.35);
+    filter: brightness(1.05);
+}
+
+#saveBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 7px 14px rgba(108, 99, 255, 0.22);
+}
+
+/* Entries container */
+#allEntries {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    width: min(100%, 1000px);
+    margin: 0 auto;
+    animation: fadeIn 0.9s ease 0.15s both;
+}
+
+/*
+   These styles work well if your JavaScript
+   creates div, article, or paragraph entries.
+*/
+#allEntries > div,
+#allEntries > article,
+#allEntries > p {
+    position: relative;
+    min-height: 150px;
+    padding: 24px;
+    overflow-wrap: anywhere;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #ffffff;
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.7;
+    box-shadow: 0 10px 25px rgba(48, 55, 90, 0.08);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+h1{
+    text-align: center;
+    color: red;
+    text-shadow: violet;
+    text-decoration: wavy;
+}
+
+#allEntries > div::before,
+#allEntries > article::before,
+#allEntries > p::before {
+    content: "“";
+    position: absolute;
+    top: -10px;
+    left: 18px;
+    color: var(--primary);
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    line-height: 1;
+    opacity: 0.2;
+}
+
+#allEntries > div:hover,
+#allEntries > article:hover,
+#allEntries > p:hover {
+    transform: translateY(-6px);
+    border-color: rgba(108, 99, 255, 0.3);
+    box-shadow: 0 18px 35px rgba(48, 55, 90, 0.14);
+}
+
+/* Optional styles for common buttons created by JavaScript */
+#allEntries button {
+    margin-top: 18px;
+    padding: 8px 13px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    background: #ef6d6d;
+    font: 600 0.85rem "DM Sans", sans-serif;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+#allEntries button:hover {
+    background: #d95353;
+    transform: scale(1.04);
+}
+
+/* Selection color */
+::selection {
+    color: #ffffff;
+    background: var(--primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf0f7;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #b8b9e8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 25px 14px;
+    }
+
+    form {
+        padding: 25px 18px;
+        border-radius: 18px;
+    }
+
+    label {
+        font-size: 2.2rem;
+    }
+
+    textarea {
+        min-height: 200px;
+        padding: 16px;
+    }
+
+    #allEntries {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* Accessibility: reduce animation for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
